@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+.containeras{
+    max-width: 1200px;
+    margin: auto;
+    padding: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width:750px){
+    .black{
+        text-align: center;
+    }
+}

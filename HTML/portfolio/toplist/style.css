@@ -1,0 +1,28 @@
+* {
+   outline: 1px solid red !important;
+}
+.title{
+    background-color: orange;
+    text-align: center;
+    color: white;
+    font-size: 48px;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+* {
+    box-sizing: border-box;
+} 
+
+.screenshot{
+    max-width: 460px;
+    padding: 10px;
+}
+
+.description{
+    max-width: 705px;
+    padding: 10px;
+}
+
+.my-app{
+    display: flex;
+}

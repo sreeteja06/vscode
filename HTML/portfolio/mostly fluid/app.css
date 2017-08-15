@@ -1,0 +1,117 @@
+    /*
+      These are the default styles. No need to change these.
+    */
+      @import url(https://fonts.googleapis.com/css?family=Roboto);
+      *{
+          box-sizing: border-box;
+      }
+        *{
+            outline: 1px solid red;
+        }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .title {
+        font-size: 2.5em;
+        text-align: center;
+      }
+
+      .box {
+        height: 25%;
+        min-height: 150px;
+      }
+
+      .dark_blue {
+        background-color: #2A457A;
+        color: #efefef;
+      }
+
+      .light_blue {
+        background-color: #099DD9;
+      }
+
+      .green {
+        background-color: #0C8542;
+      }
+
+      .lime {
+        background-color: rgb(179, 210, 52);
+      }
+
+      .seafoam {
+        background-color: rgb(77, 190, 161);
+      }
+
+      .red {
+        background-color: #EC1D3B;
+      }
+
+      .orange {
+        background-color: #F79420;
+      }
+     /*
+      These are the responsive styles. Throw some breakpoints in here!
+      */
+      .container {
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .box {
+        width: 100%;
+        height: 25%;
+      }
+    @media screen and (min-width: 450px) {
+        .box.green{
+                width:50%;
+        }
+        .box.light_blue{
+            width:50%;
+        }
+      }
+    @media screen and (min-width: 550px) {
+        .box.green{
+                width:50%;
+        }
+        .box.light_blue{
+            width:50%;
+        }
+        .box.red{
+            width:33.33%;
+        }
+        .box.orange{
+            width: 66.6%;
+        }
+      }
+      
+      @media screen and (min-width: 800px) {
+          .container{
+              width: 800px;
+              margin-left: auto;
+              margin-right: auto;
+          }
+        .box.green{
+                width:50%;
+        }
+        .box.light_blue{
+            width:50%;
+        }
+        .box.red{
+            width:33.33%;
+        }
+        .box.orange{
+            width: 66.6%;
+        }
+      }
+      @media screen and (max-width: 400px) {
+        .dark_blue {
+          color: blue;
+        }
+      }
