@@ -19,6 +19,5 @@ struct node* create_node()
 }
 struct node* bst()
 {
-    struct node *node1=create_node();
-    
+    struct node *node1=create_node();    //checking git commits in vs code
 }
