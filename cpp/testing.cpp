@@ -1,14 +1,21 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class student{
-    char enrollment_no[11];
-    char First_name[10];
-    char Last_name[10];
-    int math_marks=0;
-    void behaviour();
+class students{
+    public:
+        int marks;
+    class stud{
+        int physics;
+    }
 };
-int main()
+int main() 
 {
-    student s1;
-    s1.math_marks=
+    int x=10;
+    int &y = x;
+    x=11;
+    y=13;
+    students s1;
+    s1.marks=10;
+    s1.physics=11;
+    s1.stud stud1;
+    cout<<"y="<<y<<" x="<<x<<" s1 marks="<<s1.marks;
 }
