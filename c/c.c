@@ -3,5 +3,7 @@
 #include<stdio.h>
 int main()
 {
-    printf("hello world");
+    printf("GFG");
+    system("test");
+    return 0;
 }

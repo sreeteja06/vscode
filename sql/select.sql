@@ -70,6 +70,7 @@ where productid like 'fr-_[0-9][0-9]_-[0-9]' --where underscore is a litteral da
 SELECT name,listprice
 FROM salesit.product
 WHERE listprice in (3,4,5)  --if list price is equal yo 3 or 4 or 5
+WHERE listprice in (3,4,5)  --if list price is equal yo 3 or 4 or 5
 
 --to match characters that are not R, use [^R]
 --JOINS (INNER, OUTER, )
@@ -111,3 +112,4 @@ INTERSECT
 SELECT FirstName, LastName
 FROM Saleslt.customer
 ORDER BY LastName;
+

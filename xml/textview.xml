@@ -1,0 +1,8 @@
+<TextView
+    android:text="Happy Birthday! to you and your father and your mother and your son and your wife"
+    android:background="#000000"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="15sp"
+    android:textColor="#5cf442"
+    />
