@@ -1,0 +1,40 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray">
+
+    <TextView
+        android:text="VIP List"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#4CAF50"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:text="Kunal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#4CAF50"
+        android:textSize="24sp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:text="Kagure"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#4CAF50"
+        android:textSize="24sp" 
+        android:layout_weight="1"/>
+
+    <TextView
+        android:text="Lyla"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#4CAF50"
+        android:textSize="24sp" 
+        android:layout_weight="1"/>
+
+</LinearLayout>

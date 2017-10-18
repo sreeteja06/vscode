@@ -2,5 +2,5 @@
     android:src=""
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:scaleType="center"
+    android:scaleType="center" <!--centerCrop-->
 />

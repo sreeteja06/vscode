@@ -1,0 +1,55 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    android:layout_marginRight="2dp"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp">
+
+    <TextView
+        android:id="@+id/lyla_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:textSize="24sp"
+        android:text="Lyla" />
+
+    <TextView
+        android:id="@+id/me_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/lyla_text_view"
+        android:textSize="24sp"
+        android:text="Me" />
+
+    <TextView
+        android:id="@+id/jennie_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="24sp"
+        android:text="Jennie" />
+
+    <TextView
+        android:id="@+id/omoju_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@id/jennie_text_view"
+        android:textSize="24sp"
+        android:text="Omoju" />
+
+    <TextView
+        android:id="@+id/amy_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@id/jennie_text_view"
+        android:textSize="24sp"
+        android:text="Amy" />
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+{
+    "dependencies": {               //npm install -s botbuilder restify
+        "botbuilder": "^3.9.1",
+        "restify": "^6.0.0"
+    },
+    "devDependencies": {            //npm install --save-dev @types/restify
+        "@types/restify": "^5.0.3"
+    }
+}

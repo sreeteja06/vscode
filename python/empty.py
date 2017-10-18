@@ -1,16 +1,12 @@
-#!/bin/python3
-n = int(input().strip())
-arr = [int(arr_temp) for arr_temp in input().strip().split(' ')]
-positive = 0
-negative = 0
-zeros = 0
-for i in range(n):
-    if(arr[i]>0):
-        positive+=1
-    if(arr[i]<0):
-        negative+=1
-    if(arr[i]==0):
-        zeros+=1
-print(float(positive/n))
-print(float(negative/n))
-print(float(zeros/n))
+    result = 0
+    if(p == s):
+        return 1
+    elif(p > s):
+        return 0
+    while s>0:
+        s = s - p
+        p = p - d
+        if(p<=m):
+            p = m
+        result = result + 1
+    return result-1
