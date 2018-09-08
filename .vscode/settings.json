@@ -5,6 +5,9 @@
         "ostream": "cpp",
         "iomanip": "cpp",
         "typeinfo": "cpp",
-        "fstream": "cpp"
-    }
+        "fstream": "cpp",
+        "cstdio": "cpp"
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "C_Cpp.errorSquiggles": "Disabled"
 } // Place your settings in this file to overwrite default and user settings

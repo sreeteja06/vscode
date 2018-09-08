@@ -1,36 +1,43 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-int main()
-{
-    srand(time(NULL));
-    int i = rand()%20;
-    int guess=0,count = 1;
-    printf("Guess the number between 1 to 20:");
-    scanf("%d",&guess);
-    while((guess!=i)&&(count<5))
-    {
-        if(guess<i)
+#include <stdio.h >
+#include <stdlib.h>
+#include <string.h>
+        void main()
         {
-            printf("your guess is low.Try again:");
-            scanf("%d",&guess);
-            count++;
-            continue;
+          int pos,j,max,T,t,q,n,p[100];
+          char s[100][20],r[9],tax[5],c[9],i[5];
+          double tot;
+          scanf("%d",&T);
+          while(T>0)
+          {
+            scanf("%d",&n);
+            q=0;
+            pos=0;
+            max=0;
+            j=0;
+            while( q < n)
+            {
+              scanf("%s %s %s",s[q],c,i);
+              for(j=1; j< strlen ( c ) ;  j ++)  r[j-1]=c[j];
+        
+              p[q]=atoi(r);
+              for( j = 0 ; j < strlen (i) - 1; j ++)  tax[j]=i[j];
+              
+              t=atoi( tax );
+
+              tot = p[q] + t * p[q] / 100;
+              if(tot>max)
+              {
+                max=tot;
+                pos=q;
+              }
+              else if(tot == max)
+              {
+                 if( p[q] > p[pos])
+                  pos=q;
+              }
+              q++;
+           }
+           printf("%s\n",s[pos]);
+           T--;
+          }
         }
-        else if(guess>i)
-        {
-            printf("your guess is high.Try again:");
-            scanf("%d",&guess);
-            count++;
-            continue;
-        }
-    }
-    if(count>=5)
-    {
-        printf("sorry. the number was %d\nbetter luck next time.",i);
-    }
-    else if(guess==i)
-    {
-        printf("Congradulations. you did it.");
-    }
-}

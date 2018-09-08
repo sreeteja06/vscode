@@ -1,10 +1,11 @@
-#include <iostream>
-#include <conio.h>
-#include <cstdio>
-#include <iomanip>
-#include <unistd.h>
-#include <time.h>
-#include <fstream>
+#include<iostream>
+#include<conio.h>
+//#include<cstdio>
+#include<iomanip>
+//#include<unistd.h>
+#include<string>
+#include<time.h>
+#include<fstream>
 using namespace std;
 int count;
 int search();
@@ -13,11 +14,14 @@ void write_to_studentinfo();
 //Class which has fee for each sem and MODIFY, LIST modules
 class FEE
 {
-  public:
+  private:
     float semester_fee[9], bus_fee[9], sports_fee[9], examination_fee[9], total_fee[9];
+  public:
+    friend void menu();
+    friend class Payment_class;
     FEE()
     {
-        ifstream infile;                                                                            //Reading fee structure frfom the file
+        ifstream infile;                                                            //Reading fee structure from the file
         infile.open("temp.txt");
         int j;
         for (j = 1; j < 9; j++)
@@ -30,7 +34,7 @@ class FEE
     {
         char ch;
         system("CLS");
-        cout << "\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;                 //member function for modifing the fee structure
+        cout << "\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl; //member function for modifing the fee structure
         cout << "\t|\t       SELECT THE FEE STRUCTURE        |" << endl;
         cout << "\t------------------------------------------------" << endl;
         cout << "\t|\t\t s:SEMESTER" << setw(21) << right << "|" << endl
@@ -145,19 +149,24 @@ void FEE::MODIFY()
 //class for displaying student fee slips and making fee payment
 class Payment_class
 {
-  public:
+  private:
     string student_name;
+  public:
+    friend void write_to_studentinfo();
+    friend int search();
+    friend int main();
     int student_sem;
     float paid_semester_fee, paid_bus_fee, paid_sports_fee, paid_examination_fee, paid_total_fee;
-    create_student(string StudentName, int stud_sem)
+    create_student(string StudentName)
     {
-        student_name = StudentName; //to create the student if the student dosent exist in the data
-        student_sem = stud_sem;
-        paid_semester_fee = 0;
-        paid_bus_fee = 0;
-        paid_sports_fee = 0;
-        paid_examination_fee = 0;
-        paid_total_fee = 0;
+        this->student_name = StudentName; //to create the student if the student dosent exist in the data
+        cout << "\nENTER THE SEMESTER OF THE STUDENT:";
+        cin >> this->student_sem;
+        this->paid_semester_fee = 0;
+        this->paid_bus_fee = 0;
+        this->paid_sports_fee = 0;
+        this->paid_examination_fee = 0;
+        this->paid_total_fee = 0;
     }
     void FEE_SLIP()
     {
@@ -169,7 +178,8 @@ class Payment_class
              << "\t|" << setw(47) << "|" << endl;
         cout << "\t|\t\t" << setw(23) << "DATE:" << date << "|";
         cout << "\n\t------------------------------------------------" << endl;
-        cout << setw(40) << left << "\t|NAME:" << left << setw(8) << left << student_name << "|";
+        cout
+         << setw(40) << left << "\t|NAME:" << left << setw(8) << left << student_name << "|";
         cout << "\n\t------------------------------------------------" << endl;
         cout << "\t|\tPARTICULARS\t\t|\tAMOUNT |\n";
         cout << "\t------------------------------------------------" << endl;
@@ -185,7 +195,7 @@ class Payment_class
         cout << "\t|" << setw(31) << right << "TOTAL FEE"
              << "|" << setw(14) << paid_total_fee << "|" << endl;
         cout << "\t|" << setw(31) << right << "TOTAL DUE"
-             << "|" << setw(14) << (fee_struct.total_fee[this->student_sem]-paid_total_fee) << "|" << endl;
+             << "|" << setw(14) << (fee_struct.total_fee[this->student_sem] - paid_total_fee) << "|" << endl;
         cout << "\t------------------------------------------------" << endl;
         getch();
         menu();
@@ -200,15 +210,15 @@ class Payment_class
         cout << "\n\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         cout << "\t|\t       SELECT THE FEE STRUCTURE         |" << endl;
         cout << "\t------------------------------------------------" << endl;
-        cout << "\t|STUDENT NAME:"<< this->student_name <<setw(29) << "SEM:" << this->student_sem << "|" << endl;
+        cout << "\t|STUDENT NAME:" << this->student_name << setw(29) << "SEM:" << this->student_sem << "|" << endl;
         cout << "\t------------------------------------------------" << endl;
-        cout << "\t|\t\t s:SEMESTER   (DUE:" <<fee_struct.semester_fee[this->student_sem]-paid_semester_fee<<")" << endl
+        cout << "\t|\t\t s:SEMESTER   (DUE:" << fee_struct.semester_fee[this->student_sem] - paid_semester_fee << ")" << endl
              << "\t |" << setw(47) << right << "|" << endl;
-        cout << "\t|\t\t b:IFHE BUS   (DUE:"  <<fee_struct.bus_fee[this->student_sem]-paid_bus_fee<< ")" << endl
+        cout << "\t|\t\t b:IFHE BUS   (DUE:" << fee_struct.bus_fee[this->student_sem] - paid_bus_fee << ")" << endl
              << "\t |" << setw(47) << right << "|" << endl;
-        cout << "\t|\t\t p:SPORTS     (DUE:" << fee_struct.sports_fee[this->student_sem]-paid_sports_fee<< ")" << endl
+        cout << "\t|\t\t p:SPORTS     (DUE:" << fee_struct.sports_fee[this->student_sem] - paid_sports_fee << ")" << endl
              << "\t |" << setw(47) << right << "|" << endl;
-        cout << "\t|\t\te:EXAMINATION (DUE:" << fee_struct.examination_fee[this->student_sem]-paid_examination_fee<< ")" << endl
+        cout << "\t|\t\te:EXAMINATION (DUE:" << fee_struct.examination_fee[this->student_sem] - paid_examination_fee << ")" << endl
              << "\t |" << setw(47) << right << "|" << endl;
         cout << "\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
         ch = getch();
@@ -226,7 +236,8 @@ class Payment_class
             cout << "CURRENT due BUS FEE : " << (fee_struct.bus_fee[student_sem] - paid_bus_fee) << endl
                  << endl;
             cout << "ENTER PAYMENT BUS FEE : ";
-            cin >> busfee;
+    
+        cin >> busfee;
             break;
         case 'p':
             system("CLS");
@@ -235,6 +246,9 @@ class Payment_class
             cout << "ENTER SEM PAYMENT  SPORTS FEE : ";
             cin >> sportsfee;
             break;
+    
+    
+    
         case 'e':
             system("CLS");
             cout << "CURRENT SEM EXAMINATION FEE : " << (fee_struct.examination_fee[student_sem] - paid_examination_fee) << endl
@@ -303,12 +317,9 @@ int search()
     if (ch == 'y')
     {
         count += 1;
-        cout << "\n"
-             << count << "ENTER THE SEMESTER OF THE STUDENT:";
-        cin >> semester;
-        student[count].create_student(name, semester);
+        student[count - 1].create_student(name);
         write_to_studentinfo();
-        cout << "\nSTUDET CREATED :)";
+        cout << "\nSTUDENT CREATED :)";
     }
     getch();
     menu();
@@ -348,8 +359,8 @@ void menu()
         student[s].PAYMENT();
         break;
     case 'q':
-        
-        break;
+        exit(1);
+        break; 
     default:
         break;
     }
@@ -360,6 +371,7 @@ void write_to_studentinfo()
     ofstream PaymentWriteFile; //funtion for writing data into the file
     PaymentWriteFile.open("payment.txt");
     PaymentWriteFile << count << " ";
+    cout << student[count - 1].student_name;
     for (j = 0; j < count; j++)
     {
         PaymentWriteFile << student[j].student_name << " " << student[j].student_sem << " " << student[j].paid_semester_fee << " " << student[j].paid_bus_fee << " " << student[j].paid_sports_fee << " " << student[j].paid_examination_fee << " " << student[j].paid_total_fee << " ";

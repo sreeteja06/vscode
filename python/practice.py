@@ -1,4 +1,4 @@
-class hello:
+'''class hello:
     def __init__(self, first, second="hello"):
         self.first = first
         self.second = second
@@ -13,4 +13,7 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
+'''
+arr = [10,20,30]
+for i in arr:
+    print(arr)
