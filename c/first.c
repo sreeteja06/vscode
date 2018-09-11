@@ -1,7 +1,5 @@
 #include<stdio.h>
-int main()
+void main()
 {
-    int years, weeks, days;
-    scanf("%d",&days);
-    return 0;
+    printf("hello world");
 }
